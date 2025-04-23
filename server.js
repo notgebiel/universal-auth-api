@@ -3,7 +3,7 @@ const app = express();
 require('dotenv').config();
 const port = process.env.PORT;
 const cors = require('cors');
-const pool = require('./db');
+const pool = require('./database/db');
 const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
