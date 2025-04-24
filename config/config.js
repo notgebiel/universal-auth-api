@@ -14,5 +14,7 @@ module.exports = {
         pass: "Your email password",
         service: "Your email service",
     },
-    FRONTEND_URL: "https://example.com"
+    FRONTEND_URL: "https://example.com",
+    BCRYPT_SALT_ROUNDS: 10,
+    RESET_TOKEN_SECRET: "Secure secret",
 }
