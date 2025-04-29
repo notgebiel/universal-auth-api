@@ -77,7 +77,7 @@ app.post('/auth/login', async (req, res) => {
     }
 });
 
-app.post('/auth/change-password', )
+//app.post('/auth/change-password', )
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
