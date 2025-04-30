@@ -1,0 +1,12 @@
+config/
+config/config.js
+node_modules/
+server.js
+.env
+.vscode/
+.idea/
+
+.log
+.env
+.DS_store
+

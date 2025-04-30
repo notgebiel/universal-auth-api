@@ -2,17 +2,30 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "crypto-js": "^4.2.0",
-    "cryptojs": "^2.5.3",
-    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
-    "google-auth-library": "^9.15.1",
     "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^6.10.0",
-    "nodemon": "^3.1.9",
-    "passport": "^0.7.0",
-    "passport-microsoft": "^2.1.0",
     "pg": "^8.14.1"
+  },
+  "name": "uni-secure-auth",
+  "version": "0.1",
+  "description": "A safe, universal and easy way to implement login systems.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Not available\" && exit 0"
+  },
+  "keywords": [
+    "auth",
+    "login",
+    "register",
+    "express",
+    "api",
+    "authentication"
+  ],
+  "author": "Emile Cloostermans-Huwaert",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
   }
+
 }

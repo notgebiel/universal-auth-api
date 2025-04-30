@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const config = require('../config/config');
 const cors = require('cors');
-const pool = require('../database/db');
+const pool = require('../utils/db');
 const jwt = require('jsonwebtoken');
 
 

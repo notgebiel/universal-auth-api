@@ -1,6 +1,6 @@
 module.exports = {
-    PORT: 3001,
-    DB: {
+    port: 3001,
+    db: {
         user: "Your postgres user",
         host: "Your postgres host",
         database: "Your postgres database",
@@ -8,16 +8,16 @@ module.exports = {
         port: 5432, //db port
         table: "User table"
     },
-    JWT_SECRET: "Your jsonwebtoken key",
-    JWT_EXPIRE: "1h",
-    CRYPT_SECRET: "Your encryption key",
-    EMAIL: {
+    jwt_secret: "Your jsonwebtoken key",
+    jwt_expire: "1h",
+    crypt_secret: "Your encryption key",
+    email: {
         user: "you@example.com",
         pass: "Your email password",
         service: "Your email service",
     },
-    FRONTEND_URL: "https://example.com",
-    BCRYPT_SALT_ROUNDS: 10,
-    RESET_TOKEN_SECRET: "Secure secret",
-    EXPRESS_SESSION_SECRET: "Secure secret",
+    frontend_url: "https://example.com",
+    salt_rounds: 10,
+    reset_token_secret: "Secure secret",
+    express_session_secret: "Secure secret",
 }

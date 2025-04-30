@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { pool } = require('../database/db');
+const { pool } = require('../utils/db');
 const jwt = require('jsonwebtoken');
 
 async function register(req, res, config) {

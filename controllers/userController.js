@@ -1,2 +1,2 @@
-const pool = require('../database/db');
+const pool = require('../utils/db');
 const jwt = require('jsonwebtoken');
