@@ -4,3 +4,4 @@
 /config/
 /config/*
 server.js
+/test.js
