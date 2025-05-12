@@ -1,6 +1,6 @@
 /node_modules
 .env
 /.npmignore
-/server.js
+/config/
+/config/*
 server.js
-/config
