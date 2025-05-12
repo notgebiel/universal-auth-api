@@ -1,8 +1,10 @@
 const bcrypt = require('bcrypt');
-const { pool } = require('../utils/db');
+const { createPool } = require('../utils/db');
 const jwt = require('jsonwebtoken');
 
+
 async function register(req, res, config) {
+    const pool = createPool(config)
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -11,7 +13,7 @@ async function register(req, res, config) {
 
     try {
         const hashedPassword = await bcrypt.hash(password, config.salt_rounds);
-        const result = await config.db.pool.query('INSERT INTO ' + config.db.table + ' (email, password) VALUES ($1, $2) RETURNING *', [email, hashedPassword]);
+        const result = await pool.query('INSERT INTO ' + config.db.table + ' (email, password) VALUES ($1, $2) RETURNING *', [email, hashedPassword]);
         res.status(201).json({ message: "Registration succesful", user: result.rows[0]});
     }catch (error) {
         res.status(500).json({ error: "Registration failed:", error})
@@ -20,6 +22,7 @@ async function register(req, res, config) {
 }
 
 async function login (req, res, config) {
+    const pool = createPool(config)
     const { email, password } = req.body;
 
     if(!email || !password) {
@@ -27,7 +30,7 @@ async function login (req, res, config) {
     }
 
     try {
-        const result = await config.db.pool.query('SELECT * FROM ' + config.db.table + ' WHERE email = $1', [email]);
+        const result = await pool.query('SELECT * FROM ' + config.db.table + ' WHERE email = $1', [email]);
 
         if (result.rows.length === 0){
             return res.status(401).json({ message: "User does not exist"});
