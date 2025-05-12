@@ -5,8 +5,7 @@ server.js
 .env
 .vscode/
 .idea/
-
 .log
-.env
 .DS_store
+test.js
 

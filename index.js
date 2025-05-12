@@ -10,7 +10,7 @@ function createAuthRouter(config) {
     //Middleware
     router.use(express.json());
     router.use(session({
-        secret: config.sessionSecret,
+        secret: config.express_session_secret,
         resave: false,
         saveUninitialized: false,
     }));
