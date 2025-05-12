@@ -3,3 +3,4 @@
 /.npmignore
 /server.js
 server.js
+/config
