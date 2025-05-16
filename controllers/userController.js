@@ -2,8 +2,9 @@ const pool = require('../utils/db');
 const jwt = require('jsonwebtoken');
 const { createPool } = require('../utils/db');
 
-const authenticateToken = (req, res, next) => {
-    const token = req.header('Authorization')?.split(' ')[1] // extract token from header
+const authenticateToken = (config) => {
+    return (req, res, next) => {
+        const token = req.header('Authorization')?.split(' ')[1] // extract token from header
 
     if(!token) {
         return res.status(401).json({ message: "Invalid token" });
@@ -15,6 +16,7 @@ const authenticateToken = (req, res, next) => {
         req.user = decodedUser;
         next();
     })
+    }
 }
 
 async function getProfile(req, res, config){

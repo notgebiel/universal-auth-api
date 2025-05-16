@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 async function register(req, res, config) {
-    const pool = createPool(config)
+    const pool = createPool(config);
     const { email, password } = req.body;
 
     if (!email || !password) {
