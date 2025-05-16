@@ -8,6 +8,7 @@ function createPool(config) {
         port: config.db.port,
         database: config.db.database,
     });
+    return pool;
 };
 
 
