@@ -97,9 +97,9 @@ Registers a new user.
   "password": "yourPassword"
 }
 ```
-**Response:**
+*Response:**
 ```json
-{
+{*
   "message": "Registration succesful",
   "user": {
     "email": "example@gmail.com",
@@ -120,7 +120,14 @@ Logs in a user.
   "password": "yourPassword"
 }
 ```
-
+*Response:**
+```json
+{*
+  "message": "Login succesful",
+  token
+  }
+}
+```
 ---
 
 ## License
