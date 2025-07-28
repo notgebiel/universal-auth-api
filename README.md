@@ -97,7 +97,7 @@ Registers a new user.
   "password": "yourPassword"
 }
 ```
-*Response:**
+**Response:**
 ```json
 {*
   "message": "Registration succesful",
@@ -120,12 +120,42 @@ Logs in a user.
   "password": "yourPassword"
 }
 ```
-*Response:**
+**Response:**
 ```json
 {*
   "message": "Login succesful",
   token
   }
+}
+```
+### POST `/api/user/get-profile`
+
+Returns a profile.
+
+**Header:**
+
+```json
+{
+  "Authorization": "Bearer (token)",
+}
+```
+
+**Body:**
+
+```json
+{
+  "user": 
+  {
+    "email": "email",
+  }
+}
+```
+**Response:**
+
+```json
+{
+  "email": "email",
+  "id": 0
 }
 ```
 ---
