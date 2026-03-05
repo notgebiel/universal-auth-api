@@ -12,7 +12,9 @@ async function register(req, res, config) {
     }
 
     try {
+        // hashing password
         const hashedPassword = await bcrypt.hash(password, config.salt_rounds);
+        //inserting password into database
         const result = await pool.query('INSERT INTO ' + config.db.table + ' (email, password) VALUES ($1, $2) RETURNING *', [email, hashedPassword]);
         res.status(201).json({ message: "Registration succesful", user: result.rows[0]});
     }catch (error) {
@@ -23,13 +25,14 @@ async function register(req, res, config) {
 
 async function login (req, res, config) {
     const pool = createPool(config)
-    const { email, password } = req.body;
+    const { email, password } = req.body; //saving data from request
 
     if(!email || !password) {
         return res.status(400).json({ message: "Email or password missing"});
     }
 
     try {
+        //pulling profile from database
         const result = await pool.query('SELECT * FROM ' + config.db.table + ' WHERE email = $1', [email]);
 
         if (result.rows.length === 0){
@@ -37,12 +40,13 @@ async function login (req, res, config) {
         }
 
         const user = result.rows[0];
+        //check if password is correct
         const passwordMatch = await bcrypt.compare(password, user.password);
 
         if(!passwordMatch) {
             return res.status(401).json({ message: "Email or password does not match"});
         }
-
+        //creating token for "stay logged in"-cookie
         const token = jwt.sign({email: user.email, id: user.id}, config.jwt_secret, {expiresIn: config.jwt_expire});
 
         res.status(200).json({ message: "Login succesful", token});

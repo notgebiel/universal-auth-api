@@ -22,7 +22,7 @@ const authenticateToken = (config) => {
 async function getProfile(req, res, config){
     const pool = createPool(config);
     try {
-
+        // pull profile from database
         const result = await pool.query(`SELECT * FROM ${config.db.table} WHERE email = $1`, [req.user.email]);
 
         if(result.rows.length === 0) {
