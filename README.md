@@ -99,7 +99,7 @@ Registers a new user.
 ```
 **Response:**
 ```json
-{
+{*
   "message": "Registration succesful",
   "user": {
     "email": "example@gmail.com",
@@ -120,7 +120,44 @@ Logs in a user.
   "password": "yourPassword"
 }
 ```
+**Response:**
+```json
+{*
+  "message": "Login succesful",
+  token
+  }
+}
+```
+### POST `/api/user/get-profile`
 
+Returns a profile.
+
+**Header:**
+
+```json
+{
+  "Authorization": "Bearer (token)",
+}
+```
+
+**Body:**
+
+```json
+{
+  "user": 
+  {
+    "email": "email",
+  }
+}
+```
+**Response:**
+
+```json
+{
+  "email": "email",
+  "id": 0
+}
+```
 ---
 
 ## License
